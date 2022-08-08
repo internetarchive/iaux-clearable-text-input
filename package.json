@@ -1,13 +1,13 @@
 {
-  "name": "@internetarchive/your-webcomponent",
-  "description": "The Internet Archive Typescript WebComponent template. It is based on the @open-wc template.",
+  "name": "@internetarchive/ia-clearable-text-input",
+  "description": "`<ia-clearable-text-input>` component to display a text input field with a clear button that appears when non-empty",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/internetarchive/iaux-your-webcomponent.git"
+    "url": "git+https://github.com/internetarchive/iaux-clearable-text-input.git"
   },
   "license": "AGPL-3.0-only",
   "author": "Internet Archive",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha1",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
