@@ -75,6 +75,49 @@ describe('Clearable text input', () => {
     expect(clearButton?.hidden).to.equal(true);
   });
 
+  it('focuses the text field upon clearing', async () => {
+    clearableTextInput = await fixture<ClearableTextInput>(
+      html`<clearable-text-input .value=${'a'}></clearable-text-input>`
+    );
+    await clearableTextInput.updateComplete;
+
+    inputField = clearableTextInput.shadowRoot?.querySelector(
+      '#text-input'
+    ) as HTMLInputElement;
+
+    clearButton = clearableTextInput.shadowRoot?.querySelector(
+      '#clear-button'
+    ) as HTMLButtonElement;
+    clearButton.click();
+    await clearableTextInput.updateComplete;
+
+    expect(clearableTextInput.shadowRoot?.activeElement).to.equal(inputField);
+  });
+
+  it('does not focus the text field upon clearing if focusOnClear is false', async () => {
+    clearableTextInput = await fixture<ClearableTextInput>(
+      html`<clearable-text-input
+        .value=${'a'}
+        .focusOnClear=${false}
+      ></clearable-text-input>`
+    );
+    await clearableTextInput.updateComplete;
+
+    inputField = clearableTextInput.shadowRoot?.querySelector(
+      '#text-input'
+    ) as HTMLInputElement;
+
+    clearButton = clearableTextInput.shadowRoot?.querySelector(
+      '#clear-button'
+    ) as HTMLButtonElement;
+    clearButton.click();
+    await clearableTextInput.updateComplete;
+
+    expect(clearableTextInput.shadowRoot?.activeElement).to.not.equal(
+      inputField
+    );
+  });
+
   it('accepts optional properties', async () => {
     const placeholder = 'Search...';
     const clearSRText = 'Clear search field';
