@@ -8,8 +8,11 @@ export class AppRoot extends LitElement {
   private lastClearResult = '';
 
   render() {
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get('query') ?? '';
     return html`
       <clearable-text-input
+        .value=${query}
         .placeholder=${'Search...'}
         .screenReaderLabel=${'Search'}
         @clear=${this.onClear}
