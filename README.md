@@ -15,6 +15,40 @@ html`<clearable-text-input
 />`
 ```
 
+## Styling the component
+The following style vars are available to modify the appearance of the component:
+
+**Text input field:**
+```css
+  /* Primary */
+  var(--input-padding, 0 1rem);
+  var(--input-border-width, 1px);
+  var(--input-border-style, solid);
+  var(--input-border-color, #ccc);
+  var(--input-border-radius, 2rem);
+  var(--input-color, #555);
+  var(--input-font-size, 1.7rem);
+  var(--input-line-height, 1.5);
+  var(--input-box-shadow, inset 0 1px 1px rgba(0, 0, 0, 0.075));
+
+  /* Focused */
+  var(--input-focused-border-color, #66afe9);
+  var(--input-focused-box-shadow, inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%));
+```
+
+**Clear button**
+```css
+  var(--clear-button-height, var(--input-height));
+  var(--clear-button-width, var(--input-height));
+  var(--clear-button-padding, 0);
+  var(--clear-button-border, 0);
+  var(--clear-button-background-image, <the default close-circle-dark svg>);
+  var(--clear-button-background-position, center);
+  var(--clear-button-background-size, 75%);
+  var(--clear-button-background-repeat, no-repeat);
+  var(--clear-button-background-color, transparent);
+```
+
 ## Local Demo with `web-dev-server`
 ```bash
 yarn start

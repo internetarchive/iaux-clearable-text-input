@@ -102,37 +102,52 @@ export class ClearableTextInput extends LitElement {
     }
 
     #text-input {
-      font-size: 1.7rem;
-      color: #555;
-      border-radius: 2rem;
-      padding: 0 1rem;
-      padding-inline-end: var(--input-height);
-      line-height: 1.5;
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-      background-image: none;
-      border: 1px solid #ccc;
       width: 100%;
       height: 100%;
+      padding: var(--input-padding, 0 1rem);
+      padding-inline-end: var(--input-height);
+      border: var(--input-border-width, 1px) var(--input-border-style, solid)
+        var(--input-border-color, #ccc);
+      border-radius: var(--input-border-radius, 2rem);
+      background-image: none;
+      color: var(--input-color, #555);
+      font-size: var(--input-font-size, 1.7rem);
+      line-height: var(--input-line-height, 1.5);
+      box-shadow: var(--input-box-shadow, inset 0 1px 1px rgba(0, 0, 0, 0.075));
+      -webkit-box-shadow: var(
+        --input-box-shadow,
+        inset 0 1px 1px rgba(0, 0, 0, 0.075)
+      );
     }
 
     #text-input:focus {
-      border-color: #66afe9;
+      border-color: var(--input-focused-border-color, #66afe9);
       outline: 0;
-      -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%),
-        0 0 8px rgb(102 175 233 / 60%);
-      box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%),
-        0 0 8px rgb(102 175 233 / 60%);
+      box-shadow: var(
+        --input-focused-box-shadow,
+        inset 0 1px 1px rgb(0 0 0 / 8%),
+        0 0 8px rgb(102 175 233 / 60%)
+      );
+      -webkit-box-shadow: var(
+        --input-focused-box-shadow,
+        inset 0 1px 1px rgb(0 0 0 / 8%),
+        0 0 8px rgb(102 175 233 / 60%)
+      );
     }
 
     #clear-button {
       position: absolute;
       inset-block-start: var(--clear-button-top);
       inset-inline-end: var(--clear-button-right);
-      height: var(--input-height);
-      width: var(--input-height);
-      padding: 0;
-      border: 0;
-      background: url('${clearIcon}') center/75% no-repeat transparent;
+      height: var(--clear-button-height, var(--input-height));
+      width: var(--clear-button-width, var(--input-height));
+      padding: var(--clear-button-padding, 0);
+      border: var(--clear-button-border, 0);
+      background: var(--clear-button-background-image, url('${clearIcon}'))
+        var(--clear-button-background-position, center) /
+        var(--clear-button-background-size, 75%)
+        var(--clear-button-background-repeat, no-repeat)
+        var(--clear-button-background-color, transparent);
       cursor: pointer;
     }
 
