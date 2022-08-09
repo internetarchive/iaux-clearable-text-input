@@ -23,18 +23,20 @@ export class ClearableTextInput extends LitElement {
   @property({ type: String }) placeholder?: string;
 
   /**
-   * The accessible label describing the text field.
+   * The accessible label describing the text field for users of screen readers.
+   * Must be included to meet accessibility requirements.
    */
   @property({ type: String }) screenReaderLabel?: string;
 
   /**
-   * The accessible label describing the clear button (defaults to 'Clear').
+   * The accessible label describing the clear button for users of screen
+   * readers (defaults to 'Clear').
    */
   @property({ type: String }) clearButtonScreenReaderLabel = 'Clear';
 
   /**
-   * An element id specifying additional controls for the text field for
-   * screen readers.
+   * An element id specifying additional controls for the text field, for
+   * users of screen readers.
    */
   @property({ type: String }) ariaControls?: string;
 
@@ -56,7 +58,7 @@ export class ClearableTextInput extends LitElement {
           type="text"
           size=${this.size ?? nothing}
           placeholder=${this.placeholder ?? nothing}
-          .value=${this.value}
+          .value=${this.value ?? nothing}
           aria-controls=${this.ariaControls ?? nothing}
           aria-label=${this.screenReaderLabel ?? nothing}
           @input=${this.onTextInput}
