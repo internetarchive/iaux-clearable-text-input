@@ -19,7 +19,7 @@ html`<clearable-text-input
 The following style vars are available to modify the appearance of the component:
 
 **Text input field:**
-```css
+```
   /* Primary */
   var(--input-padding, 0 1rem);
   var(--input-border-width, 1px);
@@ -37,7 +37,7 @@ The following style vars are available to modify the appearance of the component
 ```
 
 **Clear button**
-```css
+```
   var(--clear-button-height, var(--input-height));
   var(--clear-button-width, var(--input-height));
   var(--clear-button-padding, 0);
