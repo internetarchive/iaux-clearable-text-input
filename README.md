@@ -14,8 +14,13 @@ html`<clearable-text-input
   .placeholder=${'Input placeholder'}
   .screenReaderLabel=${'Enter a value'}
   .clearButtonScreenReaderLabel=${'Clear input field'}
+  @clear=${(e: CustomEvent<string>) => console.log(`Value before clear was ${e.detail}`)}
 />`
 ```
+
+## Other properties
+- By default, the input field is focused after being cleared. If this is undesirable, set `.focusOnClear=${false}` to disable.
+- If the input field has other external controls, set `.ariaControls=${'controls_id'}` with the DOM ID of the controls element.
 
 ## Styling the component
 The following style vars are available to modify the appearance of the component:

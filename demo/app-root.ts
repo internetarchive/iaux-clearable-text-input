@@ -9,9 +9,15 @@ export class AppRoot extends LitElement {
       <clearable-text-input
         .placeholder=${'Search...'}
         .screenReaderLabel=${'Search'}
+        @clear=${this.onClear}
       >
       </clearable-text-input>
     `;
+  }
+
+  private onClear(e: CustomEvent<string>) {
+    // Do something with the value prior to clearing
+    console.log(`Value before clear was ${e.detail}`);
   }
 
   static styles = css`
