@@ -5,10 +5,7 @@ import '../src/clearable-text-input';
 @customElement('app-root')
 export class AppRoot extends LitElement {
   render() {
-    return html`
-      <clearable-text-input>
-      </clearable-text-input>
-    `;
+    return html` <clearable-text-input> </clearable-text-input> `;
   }
 
   static styles = css`
