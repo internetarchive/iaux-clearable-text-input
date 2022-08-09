@@ -4,6 +4,8 @@
 
 A lightweight web component to display a text input field with a button to clear it, visible only when the field contains text.
 
+<img src="component-example.gif" style="width: 300px"/>
+
 ## Usage example
 
 ```ts
