@@ -10,7 +10,6 @@ A lightweight web component to display a text input field with a button to clear
 html`<clearable-text-input
   .value=${'Input value'}
   .placeholder=${'Input placeholder'}
-  .size=${25}
   .screenReaderLabel=${'Enter a value'}
   .clearButtonScreenReaderLabel=${'Clear input field'}
 />`

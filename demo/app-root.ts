@@ -7,7 +7,6 @@ export class AppRoot extends LitElement {
   render() {
     return html`
       <clearable-text-input
-        .size=${25}
         .placeholder=${'Search...'}
         .screenReaderLabel=${'Search'}
       >

@@ -10,14 +10,6 @@ export class ClearableTextInput extends LitElement {
   @property({ type: String }) value = '';
 
   /**
-   * The size of the text field in (monospaced) characters.
-   * Mainly exists to support existing usage, but CSS sizing should be
-   * preferred (and will override this setting).
-   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/size
-   */
-  @property({ type: Number }) size?: number;
-
-  /**
    * The placeholder value shown in the text field when it is empty.
    */
   @property({ type: String }) placeholder?: string;
@@ -56,7 +48,6 @@ export class ClearableTextInput extends LitElement {
         <input
           id="text-input"
           type="text"
-          size=${this.size ?? nothing}
           placeholder=${this.placeholder ?? nothing}
           .value=${this.value ?? nothing}
           aria-controls=${this.ariaControls ?? nothing}

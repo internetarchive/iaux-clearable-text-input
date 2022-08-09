@@ -76,13 +76,11 @@ describe('Clearable text input', () => {
   });
 
   it('accepts optional properties', async () => {
-    const size = 30;
     const placeholder = 'Search...';
     const clearSRText = 'Clear search field';
 
     clearableTextInput = await fixture<ClearableTextInput>(
       html`<clearable-text-input
-        .size=${size}
         .placeholder=${placeholder}
         .clearButtonScreenReaderLabel=${clearSRText}
       ></clearable-text-input>`
@@ -98,7 +96,6 @@ describe('Clearable text input', () => {
     ) as HTMLButtonElement;
 
     expect(clearableTextInput).to.exist;
-    expect(inputField.size).to.equal(size);
     expect(inputField.placeholder).to.equal(placeholder);
     expect(clearButton.textContent?.trim()).to.equal(clearSRText);
   });
