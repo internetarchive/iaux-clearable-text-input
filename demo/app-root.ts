@@ -16,10 +16,10 @@ export class AppRoot extends LitElement {
 
   render() {
     const params = new URLSearchParams(window.location.search);
-    const query = params.get('query') ?? '';
+    const queryParam = params.get('query') ?? '';
     return html`
       <clearable-text-input
-        .value=${query}
+        .value=${queryParam}
         .placeholder=${'Search...'}
         .screenReaderLabel=${'Search'}
         @clear=${this.onClear}
@@ -28,10 +28,7 @@ export class AppRoot extends LitElement {
       </clearable-text-input>
       <div id="controls">
         <label>
-          <input
-            type="checkbox"
-            @change=${this.toggleDarkMode}
-          >
+          <input type="checkbox" @change=${this.toggleDarkMode} />
           &nbsp;Simulate dark mode
         </label>
         <p>
