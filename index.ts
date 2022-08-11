@@ -1,1 +1,1 @@
-export { YourWebComponent } from './src/your-webcomponent';
+export { ClearableTextInput } from './src/clearable-text-input';

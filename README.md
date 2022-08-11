@@ -1,20 +1,60 @@
-![Build Status](https://github.com/internetarchive/iaux-typescript-wc-template/actions/workflows/ci.yml/badge.svg) [![codecov](https://codecov.io/gh/internetarchive/iaux-typescript-wc-template/branch/main/graph/badge.svg?token=ZOYRJ2BV9W)](https://codecov.io/gh/internetarchive/iaux-typescript-wc-template)
+![Build Status](https://github.com/internetarchive/iaux-clearable-text-input/actions/workflows/ci.yml/badge.svg) [![codecov](https://codecov.io/gh/internetarchive/iaux-clearable-text-input/branch/main/graph/badge.svg?token=ZOYRJ2BV9W)](https://codecov.io/gh/internetarchive/iaux-clearable-text-input)
 
-# Internet Archive Typescript WebComponent Template
+# `<ia-clearable-text-input>` web component
 
-This is a base template for creating Typescript WebComponents. It is based off of the [Open WebComponents generator](https://open-wc.org/docs/development/generator/) with some IA-specific customizations and some development niceities.
+A lightweight web component to display a text input field with a button to clear it, visible only when the field contains text.
 
-## Usage
+<img src="component-example.gif" style="width: 300px"/>
 
-1. Click the "Use this Template" button in GitHub to create a new repository based on this one.
-2. Clone your new repo and update the things below:
+## Usage example
 
-### Things to update in your copy
-1. Remove this section
-2. Search for the strings `your-webcomponent` and `YourWebComponent` and those are most of the spots that need to be updated.
-3. `README.md` (this file). Update the readme in general, but also the badge URLs
-4. `package.json` Update the name and description
-5. Rename the `your-webcomponent.ts` and its associated `.test` file
+```ts
+html`<clearable-text-input
+  .value=${'Input value'}
+  .placeholder=${'Input placeholder'}
+  .screenReaderLabel=${'Enter a value'}
+  .clearButtonScreenReaderLabel=${'Clear input field'}
+  @clear=${(e: CustomEvent<string>) => console.log(`Value before clear was ${e.detail}`)}
+/>`
+```
+
+## Other properties
+- By default, the input field is focused after being cleared. If this is undesirable, set `.focusOnClear=${false}` to disable.
+- If the input field has other external controls, set `.ariaControls=${'controls_id'}` with the DOM ID of the controls element.
+
+## Styling the component
+The following style vars are available to modify the appearance of the component:
+
+**Text input field:**
+```
+  /* Primary */
+  var(--input-padding, 0 1rem);
+  var(--input-border-width, 1px);
+  var(--input-border-style, solid);
+  var(--input-border-color, #ccc);
+  var(--input-border-radius, 2rem);
+  var(--input-color, #555);
+  var(--input-font-size, 1.7rem);
+  var(--input-line-height, 1.5);
+  var(--input-box-shadow, inset 0 1px 1px rgba(0, 0, 0, 0.075));
+
+  /* Focused */
+  var(--input-focused-border-color, #66afe9);
+  var(--input-focused-box-shadow, inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%));
+```
+
+**Clear button**
+```
+  var(--clear-button-height, var(--input-height));
+  var(--clear-button-width, var(--input-height));
+  var(--clear-button-padding, 0);
+  var(--clear-button-border, 0);
+  var(--clear-button-background-image, <the default close-circle-dark svg>);
+  var(--clear-button-background-position, center);
+  var(--clear-button-background-size, 75%);
+  var(--clear-button-background-repeat, no-repeat);
+  var(--clear-button-background-color, transparent);
+```
 
 ## Local Demo with `web-dev-server`
 ```bash
