@@ -84,6 +84,16 @@ export class ClearableTextInput extends LitElement {
       detail: preClearValue,
     });
     this.dispatchEvent(clearEvent);
+
+    // Also dispatch an 'input' event with the newly empty value upon clearing.
+    // Note that most ordinary input events are bubbled and retargeted across the Shadow DOM
+    // boundary automatically. We only need this here because the input field's value has been
+    // cleared programmatically rather than by user keyboard input. We want every value change
+    // to produce an input event for consistency.
+    const inputEvent = new InputEvent('input', {
+      inputType: 'deleteContentBackward',
+    });
+    this.dispatchEvent(inputEvent);
   }
 
   static styles = css`
@@ -109,7 +119,8 @@ export class ClearableTextInput extends LitElement {
       border: var(--input-border-width, 1px) var(--input-border-style, solid)
         var(--input-border-color, #ccc);
       border-radius: var(--input-border-radius, 2rem);
-      background-image: none;
+      background-image: var(--input-background-image, none);
+      background-color: var(--input-background-color, transparent);
       color: var(--input-color, #555);
       font-size: var(--input-font-size, 1.7rem);
       line-height: var(--input-line-height, 1.5);
