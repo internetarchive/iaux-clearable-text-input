@@ -160,10 +160,7 @@ const pt=function(){const t=document.createElement("link").relList;if(t&&t.suppo
       </clearable-text-input>
       <div id="controls">
         <label>
-          <input
-            type="checkbox"
-            @change=${this.toggleDarkMode}
-          >
+          <input type="checkbox" @change=${this.toggleDarkMode} />
           &nbsp;Simulate dark mode
         </label>
         <p>
