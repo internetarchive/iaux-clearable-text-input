@@ -11,6 +11,9 @@ export class AppRoot extends LitElement {
   @state()
   private lastClearResult = '';
 
+  @state()
+  private lastSubmitResult = '';
+
   @query('clearable-text-input')
   private widget!: ClearableTextInput;
 
@@ -24,6 +27,7 @@ export class AppRoot extends LitElement {
         .screenReaderLabel=${'Search'}
         @clear=${this.onClear}
         @input=${this.onInput}
+        @submit=${this.onSubmit}
       >
       </clearable-text-input>
       <div id="controls">
@@ -39,6 +43,10 @@ export class AppRoot extends LitElement {
           Component value prior to the last clear event was:
           <span id="clear-result">${this.lastClearResult}</span>
         </p>
+        <p ?hidden=${!this.lastSubmitResult}>
+          Last submitted value was:
+          <span id="submit-result">${this.lastSubmitResult}</span>
+        </p>
       </div>
     `;
   }
@@ -51,6 +59,10 @@ export class AppRoot extends LitElement {
 
   private onInput() {
     this.lastInputResult = this.widget.value;
+  }
+
+  private onSubmit(e: CustomEvent<string>) {
+    this.lastSubmitResult = e.detail;
   }
 
   private toggleDarkMode() {
