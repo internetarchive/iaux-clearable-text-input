@@ -150,8 +150,8 @@ const pt=function(){const t=document.createElement("link").relList;if(t&&t.suppo
       -webkit-clip-path: inset(50%) !important;
       clip-path: inset(50%) !important;
     }
-  `;p([b({type:String})],$.prototype,"value",void 0);p([b({type:String})],$.prototype,"placeholder",void 0);p([b({type:String})],$.prototype,"screenReaderLabel",void 0);p([b({type:String})],$.prototype,"clearButtonScreenReaderLabel",void 0);p([b({type:String})],$.prototype,"ariaControls",void 0);p([b({type:Boolean})],$.prototype,"focusOnClear",void 0);p([ct("#text-input")],$.prototype,"textInput",void 0);$=p([dt("clearable-text-input")],$);let m=class extends M{constructor(){super(...arguments),this.lastInputResult="",this.lastClearResult="",this.lastSubmitResult=""}render(){var t;const i=(t=new URLSearchParams(window.location.search).get("query"))!==null&&t!==void 0?t:"";return ut`
-      <clearable-text-input
+  `;p([b({type:String})],$.prototype,"value",void 0);p([b({type:String})],$.prototype,"placeholder",void 0);p([b({type:String})],$.prototype,"screenReaderLabel",void 0);p([b({type:String})],$.prototype,"clearButtonScreenReaderLabel",void 0);p([b({type:String})],$.prototype,"ariaControls",void 0);p([b({type:Boolean})],$.prototype,"focusOnClear",void 0);p([ct("#text-input")],$.prototype,"textInput",void 0);$=p([dt("ia-clearable-text-input")],$);let m=class extends M{constructor(){super(...arguments),this.lastInputResult="",this.lastClearResult="",this.lastSubmitResult=""}render(){var t;const i=(t=new URLSearchParams(window.location.search).get("query"))!==null&&t!==void 0?t:"";return ut`
+      <ia-clearable-text-input
         .value=${i}
         .placeholder=${"Search..."}
         .screenReaderLabel=${"Search"}
@@ -159,7 +159,7 @@ const pt=function(){const t=document.createElement("link").relList;if(t&&t.suppo
         @input=${this.onInput}
         @submit=${this.onSubmit}
       >
-      </clearable-text-input>
+      </ia-clearable-text-input>
       <div id="controls">
         <label>
           <input type="checkbox" @change=${this.toggleDarkMode} />
