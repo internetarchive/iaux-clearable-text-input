@@ -1,7 +1,7 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, query, state } from 'lit/decorators.js';
-import '../src/clearable-text-input';
-import type { ClearableTextInput } from '../src/clearable-text-input';
+import '../src/ia-clearable-text-input';
+import type { IaClearableTextInput } from '../src/ia-clearable-text-input';
 
 @customElement('app-root')
 export class AppRoot extends LitElement {
@@ -15,13 +15,13 @@ export class AppRoot extends LitElement {
   private lastSubmitResult = '';
 
   @query('clearable-text-input')
-  private widget!: ClearableTextInput;
+  private widget!: IaClearableTextInput;
 
   render() {
     const params = new URLSearchParams(window.location.search);
     const queryParam = params.get('query') ?? '';
     return html`
-      <clearable-text-input
+      <ia-clearable-text-input
         .value=${queryParam}
         .placeholder=${'Search...'}
         .screenReaderLabel=${'Search'}
@@ -29,7 +29,7 @@ export class AppRoot extends LitElement {
         @input=${this.onInput}
         @submit=${this.onSubmit}
       >
-      </clearable-text-input>
+      </ia-clearable-text-input>
       <div id="controls">
         <label>
           <input type="checkbox" @change=${this.toggleDarkMode} />

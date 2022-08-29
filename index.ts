@@ -1,1 +1,1 @@
-export { ClearableTextInput } from './src/clearable-text-input';
+export { IaClearableTextInput } from './src/ia-clearable-text-input';

@@ -2,8 +2,8 @@ import { html, css, nothing, LitElement, TemplateResult } from 'lit';
 import { property, query, customElement } from 'lit/decorators.js';
 import clearIcon from './assets/img/close-circle-dark';
 
-@customElement('clearable-text-input')
-export class ClearableTextInput extends LitElement {
+@customElement('ia-clearable-text-input')
+export class IaClearableTextInput extends LitElement {
   /**
    * The value shown in the text field.
    */

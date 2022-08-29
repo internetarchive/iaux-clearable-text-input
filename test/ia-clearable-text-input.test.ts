@@ -1,16 +1,16 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import type { ClearableTextInput } from '../src/clearable-text-input';
-import '../src/clearable-text-input';
+import type { IaClearableTextInput } from '../src/ia-clearable-text-input';
+import '../src/ia-clearable-text-input';
 
-let clearableTextInput: ClearableTextInput;
+let clearableTextInput: IaClearableTextInput;
 let inputField: HTMLInputElement;
 let clearButton: HTMLButtonElement;
 
 describe('Clearable text input', () => {
   it('has a clear button, initially hidden', async () => {
-    clearableTextInput = await fixture<ClearableTextInput>(
-      html`<clearable-text-input></clearable-text-input>`
+    clearableTextInput = await fixture<IaClearableTextInput>(
+      html`<ia-clearable-text-input></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
@@ -22,8 +22,8 @@ describe('Clearable text input', () => {
   });
 
   it('shows the clear button when the input field has initial text', async () => {
-    clearableTextInput = await fixture<ClearableTextInput>(
-      html`<clearable-text-input .value=${'a'}></clearable-text-input>`
+    clearableTextInput = await fixture<IaClearableTextInput>(
+      html`<ia-clearable-text-input .value=${'a'}></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
@@ -34,8 +34,8 @@ describe('Clearable text input', () => {
   });
 
   it('shows the clear button when text is entered into the input field', async () => {
-    clearableTextInput = await fixture<ClearableTextInput>(
-      html`<clearable-text-input></clearable-text-input>`
+    clearableTextInput = await fixture<IaClearableTextInput>(
+      html`<ia-clearable-text-input></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
@@ -57,8 +57,8 @@ describe('Clearable text input', () => {
   });
 
   it('clears the text field when the clear button is clicked', async () => {
-    clearableTextInput = await fixture<ClearableTextInput>(
-      html`<clearable-text-input .value=${'a'}></clearable-text-input>`
+    clearableTextInput = await fixture<IaClearableTextInput>(
+      html`<ia-clearable-text-input .value=${'a'}></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
@@ -76,8 +76,8 @@ describe('Clearable text input', () => {
   });
 
   it('focuses the text field upon clearing', async () => {
-    clearableTextInput = await fixture<ClearableTextInput>(
-      html`<clearable-text-input .value=${'a'}></clearable-text-input>`
+    clearableTextInput = await fixture<IaClearableTextInput>(
+      html`<ia-clearable-text-input .value=${'a'}></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
@@ -95,11 +95,11 @@ describe('Clearable text input', () => {
   });
 
   it('does not focus the text field upon clearing if focusOnClear is false', async () => {
-    clearableTextInput = await fixture<ClearableTextInput>(
-      html`<clearable-text-input
+    clearableTextInput = await fixture<IaClearableTextInput>(
+      html`<ia-clearable-text-input
         .value=${'a'}
         .focusOnClear=${false}
-      ></clearable-text-input>`
+      ></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
@@ -122,11 +122,11 @@ describe('Clearable text input', () => {
     const placeholder = 'Search...';
     const clearSRText = 'Clear search field';
 
-    clearableTextInput = await fixture<ClearableTextInput>(
-      html`<clearable-text-input
+    clearableTextInput = await fixture<IaClearableTextInput>(
+      html`<ia-clearable-text-input
         .placeholder=${placeholder}
         .clearButtonScreenReaderLabel=${clearSRText}
-      ></clearable-text-input>`
+      ></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
@@ -144,10 +144,10 @@ describe('Clearable text input', () => {
   });
 
   it('passes the a11y audit, provided an aria-label is given', async () => {
-    clearableTextInput = await fixture<ClearableTextInput>(
-      html`<clearable-text-input
+    clearableTextInput = await fixture<IaClearableTextInput>(
+      html`<ia-clearable-text-input
         .screenReaderLabel=${'Enter your first name'}
-      ></clearable-text-input>`
+      ></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
