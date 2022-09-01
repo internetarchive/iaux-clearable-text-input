@@ -1,7 +1,7 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, query, state } from 'lit/decorators.js';
-import '../src/clearable-text-input';
-import type { ClearableTextInput } from '../src/clearable-text-input';
+import '../src/ia-clearable-text-input';
+import type { IaClearableTextInput } from '../src/ia-clearable-text-input';
 
 @customElement('app-root')
 export class AppRoot extends LitElement {
@@ -11,21 +11,25 @@ export class AppRoot extends LitElement {
   @state()
   private lastClearResult = '';
 
-  @query('clearable-text-input')
-  private widget!: ClearableTextInput;
+  @state()
+  private lastSubmitResult = '';
+
+  @query('ia-clearable-text-input')
+  private widget!: IaClearableTextInput;
 
   render() {
     const params = new URLSearchParams(window.location.search);
     const queryParam = params.get('query') ?? '';
     return html`
-      <clearable-text-input
+      <ia-clearable-text-input
         .value=${queryParam}
         .placeholder=${'Search...'}
         .screenReaderLabel=${'Search'}
         @clear=${this.onClear}
         @input=${this.onInput}
+        @submit=${this.onSubmit}
       >
-      </clearable-text-input>
+      </ia-clearable-text-input>
       <div id="controls">
         <label>
           <input type="checkbox" @change=${this.toggleDarkMode} />
@@ -39,6 +43,10 @@ export class AppRoot extends LitElement {
           Component value prior to the last clear event was:
           <span id="clear-result">${this.lastClearResult}</span>
         </p>
+        <p ?hidden=${!this.lastSubmitResult}>
+          Last submitted value was:
+          <span id="submit-result">${this.lastSubmitResult}</span>
+        </p>
       </div>
     `;
   }
@@ -51,6 +59,10 @@ export class AppRoot extends LitElement {
 
   private onInput() {
     this.lastInputResult = this.widget.value;
+  }
+
+  private onSubmit(e: CustomEvent<string>) {
+    this.lastSubmitResult = e.detail;
   }
 
   private toggleDarkMode() {
@@ -68,7 +80,7 @@ export class AppRoot extends LitElement {
       margin-top: 0.8rem;
     }
 
-    clearable-text-input.dark-mode {
+    ia-clearable-text-input.dark-mode {
       --input-background-color: #2c2c2c;
       --input-color: #fff;
     }

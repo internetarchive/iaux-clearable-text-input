@@ -2,8 +2,8 @@ import { html, css, nothing, LitElement, TemplateResult } from 'lit';
 import { property, query, customElement } from 'lit/decorators.js';
 import clearIcon from './assets/img/close-circle-dark';
 
-@customElement('clearable-text-input')
-export class ClearableTextInput extends LitElement {
+@customElement('ia-clearable-text-input')
+export class IaClearableTextInput extends LitElement {
   /**
    * The value shown in the text field.
    */
@@ -53,6 +53,7 @@ export class ClearableTextInput extends LitElement {
           aria-controls=${this.ariaControls ?? nothing}
           aria-label=${this.screenReaderLabel ?? nothing}
           @input=${this.onTextInput}
+          @keypress=${this.onKeyPress}
         />
         <button
           id="clear-button"
@@ -69,6 +70,20 @@ export class ClearableTextInput extends LitElement {
   private onTextInput(): void {
     // Update the component value to match the input element
     this.value = this.textInput.value;
+  }
+
+  private onKeyPress(e: KeyboardEvent): void {
+    // Dispatch a 'submit' event if Enter was pressed on the input field, simulating
+    // the behavior the input would have within a form. Since native submit events don't
+    // cross the Shadow DOM boundary, and since this component may or may not be inside a
+    // form element, we emit this event so that parent components don't need to listen for
+    // arbitrary key events just for this single use case.
+    if (e.key === 'Enter') {
+      const submitEvent = new CustomEvent<string>('submit', {
+        detail: this.value,
+      });
+      this.dispatchEvent(submitEvent);
+    }
   }
 
   private clearButtonClicked(): void {
