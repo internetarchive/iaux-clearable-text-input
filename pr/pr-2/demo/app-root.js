@@ -188,8 +188,8 @@ const pt=function(){const t=document.createElement("link").relList;if(t&&t.suppo
       margin-top: 0.8rem;
     }
 
-    clearable-text-input.dark-mode {
+    ia-clearable-text-input.dark-mode {
       --input-background-color: #2c2c2c;
       --input-color: #fff;
     }
-  `;p([Z()],m.prototype,"lastInputResult",void 0);p([Z()],m.prototype,"lastClearResult",void 0);p([Z()],m.prototype,"lastSubmitResult",void 0);p([ct("clearable-text-input")],m.prototype,"widget",void 0);m=p([dt("app-root")],m);
+  `;p([Z()],m.prototype,"lastInputResult",void 0);p([Z()],m.prototype,"lastClearResult",void 0);p([Z()],m.prototype,"lastSubmitResult",void 0);p([ct("ia-clearable-text-input")],m.prototype,"widget",void 0);m=p([dt("app-root")],m);
