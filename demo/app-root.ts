@@ -14,7 +14,7 @@ export class AppRoot extends LitElement {
   @state()
   private lastSubmitResult = '';
 
-  @query('clearable-text-input')
+  @query('ia-clearable-text-input')
   private widget!: IaClearableTextInput;
 
   render() {
@@ -80,7 +80,7 @@ export class AppRoot extends LitElement {
       margin-top: 0.8rem;
     }
 
-    clearable-text-input.dark-mode {
+    ia-clearable-text-input.dark-mode {
       --input-background-color: #2c2c2c;
       --input-color: #fff;
     }
