@@ -78,6 +78,7 @@ export class IaClearableTextInput extends LitElement {
     // cross the Shadow DOM boundary, and since this component may or may not be inside a
     // form element, we emit this event so that parent components don't need to listen for
     // arbitrary key events just for this single use case.
+    console.log(e);
     if (e.key === 'Enter') {
       const submitEvent = new CustomEvent<string>('submit', {
         detail: this.value,
