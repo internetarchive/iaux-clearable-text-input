@@ -48,6 +48,8 @@ export class IaClearableTextInput extends LitElement {
         <input
           id="text-input"
           type="text"
+          inputmode="search"
+          enterkeyhint="search"
           placeholder=${this.placeholder ?? nothing}
           .value=${this.value ?? nothing}
           aria-controls=${this.ariaControls ?? nothing}
