@@ -48,6 +48,9 @@ export class IaClearableTextInput extends LitElement {
         <input
           id="text-input"
           type="text"
+          inputmode="search"
+          enterkeyhint="search"
+          autocapitalize="off"
           placeholder=${this.placeholder ?? nothing}
           .value=${this.value ?? nothing}
           aria-controls=${this.ariaControls ?? nothing}
@@ -79,6 +82,9 @@ export class IaClearableTextInput extends LitElement {
     // form element, we emit this event so that parent components don't need to listen for
     // arbitrary key events just for this single use case.
     if (e.key === 'Enter') {
+      // Blur the input field
+      this.textInput.blur();
+
       const submitEvent = new CustomEvent<string>('submit', {
         detail: this.value,
       });

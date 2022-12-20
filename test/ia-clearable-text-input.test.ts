@@ -1,4 +1,5 @@
 import { html, fixture, expect } from '@open-wc/testing';
+import sinon from 'sinon';
 
 import type { IaClearableTextInput } from '../src/ia-clearable-text-input';
 import '../src/ia-clearable-text-input';
@@ -116,6 +117,26 @@ describe('Clearable text input', () => {
     expect(clearableTextInput.shadowRoot?.activeElement).to.not.equal(
       inputField
     );
+  });
+
+  it('blurs and emits submit event upon hitting enter', async () => {
+    const submitSpy = sinon.spy();
+    clearableTextInput = await fixture<IaClearableTextInput>(
+      html`<ia-clearable-text-input
+        .value=${'a'}
+        @submit=${submitSpy}
+      ></ia-clearable-text-input>`
+    );
+
+    inputField = clearableTextInput.shadowRoot?.querySelector(
+      '#text-input'
+    ) as HTMLInputElement;
+
+    inputField.dispatchEvent(new KeyboardEvent('keypress', { key: 'Enter' }));
+    await clearableTextInput.updateComplete;
+
+    expect(submitSpy.callCount).to.equal(1);
+    expect(clearableTextInput.shadowRoot?.activeElement).not.to.exist; // No focused element
   });
 
   it('accepts optional properties', async () => {
