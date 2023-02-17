@@ -64,6 +64,7 @@ export class IaClearableTextInput extends LitElement {
           ?hidden=${hideClearButton}
           @click=${this.clearButtonClicked}
         >
+          ${clearIcon}
           <span class="sr-only">${this.clearButtonScreenReaderLabel}</span>
         </button>
       </div>
@@ -169,18 +170,27 @@ export class IaClearableTextInput extends LitElement {
 
     #clear-button {
       position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       inset-block-start: var(--clear-button-top);
       inset-inline-end: var(--clear-button-right);
       height: var(--clear-button-height, var(--input-height));
       width: var(--clear-button-width, var(--input-height));
-      padding: var(--clear-button-padding, 0);
+      padding: var(--clear-button-padding, 4px);
       border: var(--clear-button-border, 0);
-      background: var(--clear-button-background-image, url('${clearIcon}'))
-        var(--clear-button-background-position, center) /
-        var(--clear-button-background-size, 75%)
-        var(--clear-button-background-repeat, no-repeat)
-        var(--clear-button-background-color, transparent);
+      background: none;
+      appearance: none;
       cursor: pointer;
+    }
+
+    #clear-button[hidden] {
+      display: none;
+    }
+
+    #clear-button > svg {
+      width: 100%;
+      height: 100%;
     }
 
     /* Fallback support for older browsers without newer bidirectional rules */
