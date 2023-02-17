@@ -1,6 +1,6 @@
 import { html, css, nothing, LitElement, TemplateResult } from 'lit';
 import { property, query, customElement } from 'lit/decorators.js';
-import clearIcon from './assets/img/close-circle-dark';
+import '@internetarchive/icon-close-circle';
 
 @customElement('ia-clearable-text-input')
 export class IaClearableTextInput extends LitElement {
@@ -64,7 +64,7 @@ export class IaClearableTextInput extends LitElement {
           ?hidden=${hideClearButton}
           @click=${this.clearButtonClicked}
         >
-          ${clearIcon}
+          <ia-icon-close-circle aria-hidden="true"></ia-icon-close-circle>
           <span class="sr-only">${this.clearButtonScreenReaderLabel}</span>
         </button>
       </div>
@@ -188,9 +188,11 @@ export class IaClearableTextInput extends LitElement {
       display: none;
     }
 
-    #clear-button > svg {
-      width: 100%;
-      height: 100%;
+    ia-icon-close-circle {
+      --iconWidth: 100%;
+      --iconHeight: 100%;
+      --iconFillColor: #2c2c2c;
+      pointer-events: none;
     }
 
     /* Fallback support for older browsers without newer bidirectional rules */
