@@ -110,10 +110,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@internetarchive/icon-close-circle@^1.3.4":
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/@internetarchive/icon-close-circle/-/icon-close-circle-1.3.5.tgz#eb3c9c7313aabdd963584cfcfea743cc6d92830b"
-  integrity sha512-sssNyx5veJlv6AoxUFPijTv38foAQvvwVzq6Q08CG2tnXyeYzvbSbxGDiksU4kef2MjI4hrAbueE2y1PixpK3A==
+"@internetarchive/icon-close-circle@^1.3.6":
+  version "1.3.6"
+  resolved "https://registry.yarnpkg.com/@internetarchive/icon-close-circle/-/icon-close-circle-1.3.6.tgz#45d3cdd4f690bbf047ca72979ae8b972aeba80fb"
+  integrity sha512-zI3e3fq+n+RwTS3/smCGinJdmHGTcv7ngBo4zOBZgLMo4Rnn9QF7iGZw8kHMe09iBXzOT2YaY9OaBCGCli7G2Q==
   dependencies:
     lit "^2.0.2"
 
