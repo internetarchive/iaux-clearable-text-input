@@ -26,7 +26,7 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@internetarchive/icon-close-circle": "^1.3.6",
+    "@internetarchive/icon-close": "^1.3.4",
     "lit": "^2.2.7"
   },
   "devDependencies": {

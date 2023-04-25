@@ -1,6 +1,6 @@
 import { html, css, nothing, LitElement, TemplateResult } from 'lit';
 import { property, query, customElement } from 'lit/decorators.js';
-import '@internetarchive/icon-close-circle';
+import '@internetarchive/icon-close';
 
 @customElement('ia-clearable-text-input')
 export class IaClearableTextInput extends LitElement {
@@ -64,7 +64,7 @@ export class IaClearableTextInput extends LitElement {
           ?hidden=${hideClearButton}
           @click=${this.clearButtonClicked}
         >
-          <ia-icon-close-circle aria-hidden="true"></ia-icon-close-circle>
+          <ia-icon-close aria-hidden="true"></ia-icon-close-circle>
           <span class="sr-only">${this.clearButtonScreenReaderLabel}</span>
         </button>
       </div>
@@ -188,10 +188,12 @@ export class IaClearableTextInput extends LitElement {
       display: none;
     }
 
-    ia-icon-close-circle {
+    ia-icon-close {
       --iconWidth: 100%;
       --iconHeight: 100%;
-      --iconFillColor: #2c2c2c;
+      --iconFillColor: white;
+      background: #2c2c2c;
+      border-radius: 50%;
       pointer-events: none;
     }
 
