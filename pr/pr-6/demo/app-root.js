@@ -99,7 +99,7 @@ const Qt=function(){const t=document.createElement("link").relList;if(t&&t.suppo
           ?hidden=${o}
           @click=${this.clearButtonClicked}
         >
-          <ia-icon-close aria-hidden="true"></ia-icon-close-circle>
+          <ia-icon-close aria-hidden="true"></ia-icon-close>
           <span class="sr-only">${this.clearButtonScreenReaderLabel}</span>
         </button>
       </div>
@@ -162,7 +162,7 @@ const Qt=function(){const t=document.createElement("link").relList;if(t&&t.suppo
       inset-inline-end: var(--clear-button-right);
       height: var(--clear-button-height, var(--input-height));
       width: var(--clear-button-width, var(--input-height));
-      padding: var(--clear-button-padding, 4px);
+      padding: var(--clear-button-padding, 3px);
       border: var(--clear-button-border, 0);
       background: none;
       appearance: none;
