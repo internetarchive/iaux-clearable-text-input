@@ -162,7 +162,7 @@ const Qt=function(){const t=document.createElement("link").relList;if(t&&t.suppo
       inset-inline-end: var(--clear-button-right);
       height: var(--clear-button-height, var(--input-height));
       width: var(--clear-button-width, var(--input-height));
-      padding: var(--clear-button-padding, 3px);
+      padding: var(--clear-button-padding, 4px);
       border: var(--clear-button-border, 0);
       background: none;
       appearance: none;
