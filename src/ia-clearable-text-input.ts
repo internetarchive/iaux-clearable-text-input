@@ -64,7 +64,7 @@ export class IaClearableTextInput extends LitElement {
           ?hidden=${hideClearButton}
           @click=${this.clearButtonClicked}
         >
-          <ia-icon-close aria-hidden="true"></ia-icon-close-circle>
+          <ia-icon-close aria-hidden="true"></ia-icon-close>
           <span class="sr-only">${this.clearButtonScreenReaderLabel}</span>
         </button>
       </div>
