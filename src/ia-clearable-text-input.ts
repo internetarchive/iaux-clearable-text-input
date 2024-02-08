@@ -49,8 +49,10 @@ export class IaClearableTextInput extends LitElement {
 
   protected render(): TemplateResult {
     const hideClearButton = !this.value && !this.forceClearButton;
+
     return html`
       <div id="container">
+        <slot name="icon"></slot>
         <input
           id="text-input"
           type="text"
