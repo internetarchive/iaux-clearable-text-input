@@ -2,6 +2,8 @@ import { html, css, nothing, LitElement, TemplateResult } from 'lit';
 import { property, query, customElement } from 'lit/decorators.js';
 import '@internetarchive/icon-close';
 
+type FocusOptions = Parameters<HTMLElement['focus']>[0];
+
 @customElement('ia-clearable-text-input')
 export class IaClearableTextInput extends LitElement {
   /**
@@ -124,6 +126,13 @@ export class IaClearableTextInput extends LitElement {
       inputType: 'deleteContentBackward',
     });
     this.dispatchEvent(inputEvent);
+  }
+
+  /**
+   * Overrides the base element focus method to redirect focus to the input
+   */
+  override focus(options?: FocusOptions): void {
+    this.textInput.focus(options);
   }
 
   static styles = css`
