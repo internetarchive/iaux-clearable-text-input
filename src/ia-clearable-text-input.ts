@@ -44,7 +44,7 @@ export class IaClearableTextInput extends LitElement {
    * If true, the clear button will be shown regardless of whether there is any
    * text entered in the input field.
    */
-  @property({ type: Boolean }) forceClearButton = false;
+  @property({ type: Boolean, reflect: true }) forceClearButton = false;
 
   @query('#text-input')
   private textInput!: HTMLInputElement;
