@@ -22,6 +22,18 @@ describe('Clearable text input', () => {
     expect(clearButton?.hidden).to.equal(true);
   });
 
+  it('shows the clear button when forced by property, even without text', async () => {
+    clearableTextInput = await fixture<IaClearableTextInput>(
+      html`<ia-clearable-text-input forceClearButton></ia-clearable-text-input>`
+    );
+    await clearableTextInput.updateComplete;
+
+    clearButton = clearableTextInput.shadowRoot?.querySelector(
+      '#clear-button'
+    ) as HTMLButtonElement;
+    expect(clearButton?.hidden).to.equal(false);
+  });
+
   it('shows the clear button when the input field has initial text', async () => {
     clearableTextInput = await fixture<IaClearableTextInput>(
       html`<ia-clearable-text-input .value=${'a'}></ia-clearable-text-input>`

@@ -38,13 +38,28 @@ export class IaClearableTextInput extends LitElement {
    */
   @property({ type: Boolean }) focusOnClear = true;
 
+  /**
+   * If true, the clear button will be shown regardless of whether there is any
+   * text entered in the input field.
+   */
+  @property({ type: Boolean, reflect: true }) forceClearButton = false;
+
   @query('#text-input')
   private textInput!: HTMLInputElement;
 
+  // Options to pass in when creating the shadow root.
+  // This ensures that focusing the component delegates focus to the search bar.
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
+
   protected render(): TemplateResult {
-    const hideClearButton = !this.value;
+    const hideClearButton = !this.value && !this.forceClearButton;
+
     return html`
       <div id="container">
+        <slot name="icon"></slot>
         <input
           id="text-input"
           type="text"
