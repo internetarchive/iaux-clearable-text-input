@@ -60,6 +60,7 @@ export class IaClearableTextInput extends LitElement {
     return html`
       <div id="container">
         <slot name="icon"></slot>
+        <label for="text-input">${this.screenReaderLabel}</label>
         <input
           id="text-input"
           type="text"
@@ -69,7 +70,6 @@ export class IaClearableTextInput extends LitElement {
           placeholder=${this.placeholder ?? nothing}
           .value=${this.value ?? nothing}
           aria-controls=${this.ariaControls ?? nothing}
-          aria-label=${this.screenReaderLabel ?? nothing}
           @input=${this.onTextInput}
           @keypress=${this.onKeyPress}
         />
