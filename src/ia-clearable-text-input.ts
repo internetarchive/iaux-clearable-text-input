@@ -60,7 +60,9 @@ export class IaClearableTextInput extends LitElement {
     return html`
       <div id="container">
         <slot name="icon"></slot>
-        <label for="text-input">${this.screenReaderLabel}</label>
+        <label for="text-input" class="sr-only"
+          >${this.screenReaderLabel}</label
+        >
         <input
           id="text-input"
           type="text"
