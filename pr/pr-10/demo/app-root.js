@@ -78,11 +78,11 @@ const Qt=function(){const t=document.createElement("link").relList;if(t&&t.suppo
       .stroke-color {
         stroke: var(--iconStrokeColor);
       }
-    `}render(){return Pe}}customElements.define("ia-icon-close",Ue);let _=class extends b{constructor(){super(...arguments),this.value="",this.clearButtonScreenReaderLabel="Clear",this.focusOnClear=!0,this.forceClearButton=!1}render(){var t,e,i;const s=!this.value&&!this.forceClearButton;return vt`
+    `}render(){return Pe}}customElements.define("ia-icon-close",Ue);let _=class extends b{constructor(){super(...arguments),this.value="",this.clearButtonScreenReaderLabel="Clear",this.focusOnClear=!0,this.forceClearButton=!1}render(){var t,e,i,s;const o=!this.value&&!this.forceClearButton;return vt`
       <div id="container">
         <slot name="icon"></slot>
         <label for="text-input" class="sr-only"
-          >${this.screenReaderLabel}</label
+          >${(t=this.screenReaderLabel)!==null&&t!==void 0?t:p}</label
         >
         <input
           id="text-input"
@@ -90,16 +90,16 @@ const Qt=function(){const t=document.createElement("link").relList;if(t&&t.suppo
           inputmode="search"
           enterkeyhint="search"
           autocapitalize="off"
-          placeholder=${(t=this.placeholder)!==null&&t!==void 0?t:p}
-          .value=${(e=this.value)!==null&&e!==void 0?e:p}
-          aria-controls=${(i=this.ariaControls)!==null&&i!==void 0?i:p}
+          placeholder=${(e=this.placeholder)!==null&&e!==void 0?e:p}
+          .value=${(i=this.value)!==null&&i!==void 0?i:p}
+          aria-controls=${(s=this.ariaControls)!==null&&s!==void 0?s:p}
           @input=${this.onTextInput}
           @keypress=${this.onKeyPress}
         />
         <button
           id="clear-button"
           type="button"
-          ?hidden=${s}
+          ?hidden=${o}
           @click=${this.clearButtonClicked}
         >
           <ia-icon-close aria-hidden="true"></ia-icon-close>
