@@ -10,12 +10,12 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "importHelpers": true,
+    "skipLibCheck": true,
     "outDir": "dist",
     "sourceMap": true,
     "inlineSources": true,
     "rootDir": "./",
-    "declaration": true,
-    "importsNotUsedAsValues": "error"
+    "declaration": true
   },
   "include": ["**/*.ts"]
 }
