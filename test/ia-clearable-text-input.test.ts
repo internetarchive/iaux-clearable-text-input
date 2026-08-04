@@ -11,12 +11,12 @@ let clearButton: HTMLButtonElement;
 describe('Clearable text input', () => {
   it('has a clear button, initially hidden', async () => {
     clearableTextInput = await fixture<IaClearableTextInput>(
-      html`<ia-clearable-text-input></ia-clearable-text-input>`,
+      html`<ia-clearable-text-input></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
     clearButton = clearableTextInput.shadowRoot?.querySelector(
-      '#clear-button',
+      '#clear-button'
     ) as HTMLButtonElement;
     expect(clearButton).to.exist;
     expect(clearButton?.hidden).to.equal(true);
@@ -24,38 +24,36 @@ describe('Clearable text input', () => {
 
   it('shows the clear button when forced by property, even without text', async () => {
     clearableTextInput = await fixture<IaClearableTextInput>(
-      html`<ia-clearable-text-input
-        forceClearButton
-      ></ia-clearable-text-input>`,
+      html`<ia-clearable-text-input forceClearButton></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
     clearButton = clearableTextInput.shadowRoot?.querySelector(
-      '#clear-button',
+      '#clear-button'
     ) as HTMLButtonElement;
     expect(clearButton?.hidden).to.equal(false);
   });
 
   it('shows the clear button when the input field has initial text', async () => {
     clearableTextInput = await fixture<IaClearableTextInput>(
-      html`<ia-clearable-text-input .value=${'a'}></ia-clearable-text-input>`,
+      html`<ia-clearable-text-input .value=${'a'}></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
     clearButton = clearableTextInput.shadowRoot?.querySelector(
-      '#clear-button',
+      '#clear-button'
     ) as HTMLButtonElement;
     expect(clearButton?.hidden).to.equal(false);
   });
 
   it('shows the clear button when text is entered into the input field', async () => {
     clearableTextInput = await fixture<IaClearableTextInput>(
-      html`<ia-clearable-text-input></ia-clearable-text-input>`,
+      html`<ia-clearable-text-input></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
     inputField = clearableTextInput.shadowRoot?.querySelector(
-      '#text-input',
+      '#text-input'
     ) as HTMLInputElement;
 
     inputField.value = 'a';
@@ -66,14 +64,14 @@ describe('Clearable text input', () => {
     await clearableTextInput.updateComplete;
 
     clearButton = clearableTextInput.shadowRoot?.querySelector(
-      '#clear-button',
+      '#clear-button'
     ) as HTMLButtonElement;
     expect(clearButton?.hidden).to.equal(false);
   });
 
   it('clears the text field when the clear button is clicked', async () => {
     clearableTextInput = await fixture<IaClearableTextInput>(
-      html`<ia-clearable-text-input .value=${'a'}></ia-clearable-text-input>`,
+      html`<ia-clearable-text-input .value=${'a'}></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
@@ -81,7 +79,7 @@ describe('Clearable text input', () => {
     expect(clearButton?.hidden).to.equal(false);
 
     clearButton = clearableTextInput.shadowRoot?.querySelector(
-      '#clear-button',
+      '#clear-button'
     ) as HTMLButtonElement;
     clearButton.click();
     await clearableTextInput.updateComplete;
@@ -92,16 +90,16 @@ describe('Clearable text input', () => {
 
   it('focuses the text field upon clearing', async () => {
     clearableTextInput = await fixture<IaClearableTextInput>(
-      html`<ia-clearable-text-input .value=${'a'}></ia-clearable-text-input>`,
+      html`<ia-clearable-text-input .value=${'a'}></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
     inputField = clearableTextInput.shadowRoot?.querySelector(
-      '#text-input',
+      '#text-input'
     ) as HTMLInputElement;
 
     clearButton = clearableTextInput.shadowRoot?.querySelector(
-      '#clear-button',
+      '#clear-button'
     ) as HTMLButtonElement;
     clearButton.click();
     await clearableTextInput.updateComplete;
@@ -114,22 +112,22 @@ describe('Clearable text input', () => {
       html`<ia-clearable-text-input
         .value=${'a'}
         .focusOnClear=${false}
-      ></ia-clearable-text-input>`,
+      ></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
     inputField = clearableTextInput.shadowRoot?.querySelector(
-      '#text-input',
+      '#text-input'
     ) as HTMLInputElement;
 
     clearButton = clearableTextInput.shadowRoot?.querySelector(
-      '#clear-button',
+      '#clear-button'
     ) as HTMLButtonElement;
     clearButton.click();
     await clearableTextInput.updateComplete;
 
     expect(clearableTextInput.shadowRoot?.activeElement).to.not.equal(
-      inputField,
+      inputField
     );
   });
 
@@ -139,11 +137,11 @@ describe('Clearable text input', () => {
       html`<ia-clearable-text-input
         .value=${'a'}
         @submit=${submitSpy}
-      ></ia-clearable-text-input>`,
+      ></ia-clearable-text-input>`
     );
 
     inputField = clearableTextInput.shadowRoot?.querySelector(
-      '#text-input',
+      '#text-input'
     ) as HTMLInputElement;
 
     inputField.dispatchEvent(new KeyboardEvent('keypress', { key: 'Enter' }));
@@ -161,16 +159,16 @@ describe('Clearable text input', () => {
       html`<ia-clearable-text-input
         .placeholder=${placeholder}
         .clearButtonScreenReaderLabel=${clearSRText}
-      ></ia-clearable-text-input>`,
+      ></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
     inputField = clearableTextInput.shadowRoot?.querySelector(
-      '#text-input',
+      '#text-input'
     ) as HTMLInputElement;
 
     clearButton = clearableTextInput.shadowRoot?.querySelector(
-      '#clear-button',
+      '#clear-button'
     ) as HTMLButtonElement;
 
     expect(clearableTextInput).to.exist;
@@ -182,7 +180,7 @@ describe('Clearable text input', () => {
     clearableTextInput = await fixture<IaClearableTextInput>(
       html`<ia-clearable-text-input
         .screenReaderLabel=${'Enter your first name'}
-      ></ia-clearable-text-input>`,
+      ></ia-clearable-text-input>`
     );
     await clearableTextInput.updateComplete;
 
