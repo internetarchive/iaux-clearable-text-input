@@ -4,7 +4,7 @@
 
 A lightweight web component to display a text input field with a button to clear it, visible only when the field contains text.
 
-[Live demo](https://internetarchive.github.io/iaux-clearable-text-input/main/demo/)
+[Live demo](https://internetarchive.github.io/iaux-clearable-text-input/)
 
 <img src="component-example.gif" style="width: 300px"/>
 
